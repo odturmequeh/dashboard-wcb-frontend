@@ -10,7 +10,7 @@ import WCBDashboard from "./pages/WCBDashboard/WCBDashboard";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/dashboard-wcb-frontend"> 
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/timeLoad" element={<TimeLoad />} />
