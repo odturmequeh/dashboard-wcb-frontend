@@ -4,6 +4,7 @@ import FiltersPanel from "../components/FiltersPanel";
 import KPICards from "../components/KPICards";
 import ServiciosTable from "../components/tables/ServiciosTable";
 import useDashboardData from "../components/hooks/useDashboardData";
+import config from "../../../config";
 
 export default function ProduccionDashboard() {
   // 🔹 Sin filtro de unidad por defecto
@@ -20,7 +21,7 @@ export default function ProduccionDashboard() {
 
   // 🔹 Filtros (paralelo, no bloqueante)
   useEffect(() => {
-    fetch("/api/dashboard/ventas/filters/")
+    fetch(`${config.apiUrl}/api/dashboard/ventas/filters/`)
       .then(res => res.json())
       .then(data => {
         setFilterOptions(data);

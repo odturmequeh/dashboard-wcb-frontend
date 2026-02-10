@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { buildKPIs, buildServiciosTable } from "../../utils/aggregators";
 import { buildFilterOptions } from "../../utils/buildFilterOptions";
 import { FILTERS_CONFIG } from "../config/filters.config";
+import config from "../../../../config";
 
 export default function useDashboardData(filters) {
   const [rows, setRows] = useState([]);
@@ -17,7 +18,7 @@ export default function useDashboardData(filters) {
 
     const query = new URLSearchParams(cleanFilters).toString();
 
-    fetch(`/api/dashboard/ventas/?${query}`)
+    fetch(`${config.apiUrl}/api/dashboard/ventas/?${query}`)
       .then(async res => {
         if (!res.ok) {
           const text = await res.text();
