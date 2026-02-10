@@ -1,4 +1,4 @@
-﻿import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+﻿import { HashRouter as Router, Routes, Route } from "react-router-dom"; // 👈 Cambiar aquí
 import HomePage from "./pages/HomePage";
 import TimeLoad from "./pages/TimeLoad";
 import ClickRelation from "./pages/ClickRelation";
@@ -10,7 +10,7 @@ import WCBDashboard from "./pages/WCBDashboard/WCBDashboard";
 
 function App() {
   return (
-    <Router basename="/dashboard-wcb-frontend"> 
+    <Router> {/* 👈 SIN basename cuando usas HashRouter */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/timeLoad" element={<TimeLoad />} />
@@ -20,8 +20,6 @@ function App() {
         <Route path="/click_tracking" element={<ClickTrackingDashboard />} />
         <Route path="/user_click_analysis" element={<User_click_render />} />
         <Route path="/WCB" element={<WCBDashboard />} />
-
-        
       </Routes>
     </Router>
   );
